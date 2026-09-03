@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Hologram Solutions — Healthcare reimagined through AI-driven holograms</title>
+<meta name="description" content="Hologram Solutions builds HoloPod and HoloPortal holographic displays for healthcare: better clinical training, remote diagnostics, and patient engagement." />
+<link rel="canonical" href="https://hologramsolutions.tech/" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="theme-color" content="#05050A" />
+<meta name="color-scheme" content="dark" />
+<meta name="format-detection" content="telephone=no" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Hologram Solutions" />
+<meta property="og:title" content="Hologram Solutions — Healthcare reimagined through AI-driven holograms" />
+<meta property="og:description" content="HoloPod and HoloPortal holographic displays for clinical training, remote diagnostics, and patient engagement." />
+<meta property="og:url" content="https://hologramsolutions.tech/" />
+<meta property="og:image" content="https://hologramsolutions.tech/assets/og-card-mark.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Hologram Solutions — healthcare reimagined through AI-driven holograms" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hologram Solutions — Healthcare reimagined through AI-driven holograms" />
+<meta name="twitter:description" content="HoloPod and HoloPortal holographic displays for clinical training, remote diagnostics, and patient engagement." />
+<meta name="twitter:image" content="https://hologramsolutions.tech/assets/og-card-mark.png" />
+<link rel="icon" href="./assets/favicon.png" sizes="132x132" />
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hologram Solutions","url":"https://hologramsolutions.tech/","logo":"https://hologramsolutions.tech/assets/apple-touch-icon.png","email":"info@hologramsolutions.tech","description":"Holographic display systems for healthcare training, diagnostics, and patient engagement.","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"HoloPod"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"HoloPortal"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Sora:wght@500;600;700&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/three@0.157.0/build/three.min.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#05050A; }
+  body { font-family:'Geist', system-ui, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:clip; }
+  * { box-sizing:border-box; }
+  body { -webkit-tap-highlight-color:transparent; overscroll-behavior-y:none; }
+  img, video, canvas { max-width:100%; }
+  a { color:#A9E9FF; text-decoration:none; }
+  a:hover { color:#EDEAE4; }
+  ::selection { background:#A78BFF; color:#05050A; }
+  @keyframes hs-marquee { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
+  @keyframes hs-aurora-a { 0%,100% { transform:translate3d(0,0,0) scale(1); } 50% { transform:translate3d(6%,-8%,0) scale(1.22); } }
+  @keyframes hs-aurora-b { 0%,100% { transform:translate3d(0,0,0) scale(1.15); } 50% { transform:translate3d(-7%,6%,0) scale(.92); } }
+  @keyframes hs-aurora-c { 0%,100% { transform:translate3d(0,0,0) scale(.95); opacity:.5; } 50% { transform:translate3d(4%,7%,0) scale(1.18); opacity:.85; } }
+  @keyframes hs-glow { 0%,100% { opacity:.55; transform:scale(.98); } 50% { opacity:1; transform:scale(1.04); } }
+  @keyframes hs-pulse { 0%,100% { opacity:.3; } 50% { opacity:1; } }
+  @keyframes hs-bob { 0%,100% { transform:translateY(0); opacity:.25; } 50% { transform:translateY(8px); opacity:1; } }
+  @keyframes hs-sheen { 0% { transform:translateX(-130%) skewX(-14deg); } 100% { transform:translateX(230%) skewX(-14deg); } }
+  @media (max-width: 860px) {
+    [data-nav="1"] nav { gap:18px !important; }
+    [data-nav="1"] nav a { font-size:13px !important; }
+    [data-rail="1"] { display:none !important; }
+  }
+  @media (max-width: 600px) {
+    [data-nav="1"] nav { display:none !important; }
+    [data-nav="1"] { padding:16px max(16px,env(safe-area-inset-left)) 16px max(16px,env(safe-area-inset-right)) !important; }
+    [data-section] { padding-left:max(18px,env(safe-area-inset-left)) !important; padding-right:max(18px,env(safe-area-inset-right)) !important; }
+    a[href^="mailto:"] { min-height:48px; }
+  }
+  @media (max-width: 620px) {
+    [data-atmos-l="1"], [data-cursor-glow="1"] { display:none !important; }
+  }
+  @media (hover: none) {
+    [data-cursor-glow="1"] { display:none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+</style>
+</helmet>
+
+<div data-root="1" style="position:relative;background:#05050A;color:#EDEAE4;font-family:'Geist',system-ui,sans-serif;overflow-x:clip;overflow-y:visible">
+
+  <!-- L0 · fixed atmosphere -->
+  <div data-atmos="1" style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+    <div data-atmos-l="1" data-par-speed=".04" style="position:absolute;left:-18%;top:-10%;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(111,227,255,.13),transparent 62%);filter:blur(60px);animation:hs-aurora-a 26s ease-in-out infinite"></div>
+    <div data-atmos-l="1" data-par-speed=".07" style="position:absolute;right:-22%;top:24%;width:64vw;height:64vw;border-radius:50%;background:radial-gradient(circle,rgba(167,139,255,.14),transparent 62%);filter:blur(64px);animation:hs-aurora-b 31s ease-in-out infinite"></div>
+    <div data-atmos-l="1" data-par-speed=".05" style="position:absolute;left:18%;bottom:-24%;width:58vw;height:58vw;border-radius:50%;background:radial-gradient(circle,rgba(255,194,122,.09),transparent 62%);filter:blur(70px);animation:hs-aurora-c 37s ease-in-out infinite"></div>
+    <div data-grain="1" style="position:absolute;inset:-200px;opacity:.05;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>
+  </div>
+
+  <!-- L5 · intro curtain -->
+  <div data-intro="1" style="position:fixed;inset:0;z-index:130;background:#05050A;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:38px;transition:opacity 1.1s cubic-bezier(.7,0,.25,1),visibility 1.1s">
+    <div style="position:absolute;width:min(74vw,820px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(167,139,255,.16),transparent 66%);filter:blur(40px);animation:hs-pulse 3.4s ease-in-out infinite"></div>
+    <img data-intro-logo="1" src="./assets/logo.svg" alt="Hologram Solutions" style="position:relative;width:min(48vw,360px);opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1),filter 1.2s cubic-bezier(.16,1,.3,1)" />
+    <div style="position:relative;width:min(48vw,360px);height:1px;background:rgba(237,234,228,.11);overflow:hidden">
+      <div data-intro-bar="1" style="position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,#6FE3FF,#A78BFF 55%,#FFC27A)"></div>
+    </div>
+    <div data-intro-count="1" style="position:relative;font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:11px;letter-spacing:.44em;color:#61636D">000</div>
+  </div>
+
+
+  <div data-cursor="1" style="position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;z-index:1;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(167,139,255,.16),rgba(111,227,255,.07) 42%,transparent 68%);mix-blend-mode:screen;opacity:0;transition:opacity .7s"></div>
+
+
+  <header data-nav="1" style="position:fixed;top:0;left:0;right:0;z-index:115;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px clamp(20px,4vw,60px);transition:background .6s,backdrop-filter .6s,padding .6s,border-color .6s;border-bottom:1px solid transparent">
+    <a href="#top" data-magnetic="0" style="display:flex;align-items:center">
+      <img src="./assets/logo.svg" alt="Hologram Solutions" style="height:clamp(18px,2.1vw,24px);width:auto;display:block" />
+    </a>
+    <nav style="flex:1;display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.6vw,36px)">
+      <a href="#introduction" data-navlink="1" data-magnetic="0" data-hover-color="#EDEAE4" style="font-family:'Geist',system-ui,sans-serif;font-weight:500;font-size:14px;letter-spacing:0;color:#9A9CA6;padding:6px 0;white-space:nowrap;transition:color .4s">Solutions</a>
+      <a href="#technology" data-navlink="1" data-magnetic="0" data-hover-color="#EDEAE4" style="font-family:'Geist',system-ui,sans-serif;font-weight:500;font-size:14px;letter-spacing:0;color:#9A9CA6;padding:6px 0;white-space:nowrap;transition:color .4s">Technology</a>
+      <a href="#case-study" data-navlink="1" data-magnetic="0" data-hover-color="#EDEAE4" style="font-family:'Geist',system-ui,sans-serif;font-weight:500;font-size:14px;letter-spacing:0;color:#9A9CA6;padding:6px 0;white-space:nowrap;transition:color .4s">Case study</a>
+    </nav>
+      <a href="mailto:info@hologramsolutions.tech" data-magnetic="1" data-sheen="1" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:1px solid rgba(237,234,228,.16);border-radius:100px;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:14px;letter-spacing:0;white-space:nowrap;color:#EDEAE4;background:rgba(237,234,228,.03);transition:background .5s,border-color .5s">
+        Connect with us
+      </a>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="top" data-section="hero" style="position:relative;z-index:2;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:clamp(96px,14vh,150px) clamp(20px,4vw,60px)">
+    <div data-par="1" data-par-speed=".26" style="position:absolute;inset:-12% -4%;z-index:0;will-change:transform">
+      <video src="./assets/hero-bg.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="metadata" disablepictureinpicture="disablepictureinpicture" style="display:block;width:100%;height:100%;object-fit:cover"></video>
+    </div>
+    <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(120% 100% at 50% 42%,rgba(5,5,10,0) 0%,rgba(5,5,10,.42) 55%,rgba(5,5,10,.94) 100%)"></div>
+    <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background-image:repeating-linear-gradient(to bottom,rgba(237,234,228,.032) 0px,rgba(237,234,228,.032) 1px,transparent 1px,transparent 5px);mix-blend-mode:overlay"></div>
+
+    <div style="position:relative;z-index:3;width:100%;max-width:1560px;margin:0 auto;display:grid;justify-items:center;text-align:center;gap:clamp(28px,4vw,54px)">
+
+      <h1 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0;font-weight:700;font-size:clamp(30px,5.4vw,92px);line-height:1.02;letter-spacing:-.042em">
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Healthcare</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">reimagined</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">through</span></span><br />
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">AI-driven</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">holograms</span></span>
+      </h1>
+
+      <div data-hero-bit="1" style="display:flex;flex-direction:column;align-items:center;gap:clamp(22px,3vw,34px);margin-top:clamp(-22px,-2vw,-8px);opacity:0;filter:blur(8px);transform:translateY(18px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) .6s,transform 1.1s cubic-bezier(.16,1,.3,1) .6s,filter 1.1s cubic-bezier(.16,1,.3,1) .6s">
+        <p style="margin:0;max-width:none;font-size:clamp(18px,2vw,27px);line-height:1.45;color:#E4E2DC;font-weight:400">Better training, diagnostics, and patient engagement.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+          <a href="mailto:info@hologramsolutions.tech" data-magnetic="1" data-glow="0 10px 30px rgba(77,111,255,.34)" style="display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:999px;background:linear-gradient(135deg,#4D6FFF,#9647FF);color:#fff;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:15px;letter-spacing:0;white-space:nowrap;box-shadow:0 10px 30px rgba(77,111,255,.34);transition:box-shadow .5s,transform .5s">Connect with us <span style="font-size:15px;line-height:1">&#8599;</span></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- industries marquee -->
+  <div style="position:relative;z-index:2;overflow:hidden;border-top:1px solid rgba(237,234,228,.08);border-bottom:1px solid rgba(237,234,228,.08);padding:22px 0;background:rgba(10,11,17,.7);backdrop-filter:blur(8px)">
+    <div style="display:flex;width:max-content;animation:hs-marquee 42s linear infinite">
+      <span style="display:flex;gap:64px;padding-right:64px;font-family:'Geist',system-ui,sans-serif;font-weight:400;font-size:clamp(12px,1.1vw,14px);letter-spacing:.08em;color:#C9CBD4;white-space:nowrap"><span>Healthcare</span><span style="color:#A78BFF">&#9671;</span><span>Retail</span><span style="color:#6FE3FF">&#9671;</span><span>Entertainment</span><span style="color:#FFC27A">&#9671;</span><span>Education</span><span style="color:#A78BFF">&#9671;</span><span>Events</span><span style="color:#6FE3FF">&#9671;</span></span>
+      <span style="display:flex;gap:64px;padding-right:64px;font-family:'Geist',system-ui,sans-serif;font-weight:400;font-size:clamp(12px,1.1vw,14px);letter-spacing:.08em;color:#C9CBD4;white-space:nowrap"><span>Healthcare</span><span style="color:#A78BFF">&#9671;</span><span>Retail</span><span style="color:#6FE3FF">&#9671;</span><span>Entertainment</span><span style="color:#FFC27A">&#9671;</span><span>Education</span><span style="color:#A78BFF">&#9671;</span><span>Events</span><span style="color:#6FE3FF">&#9671;</span></span>
+    </div>
+  </div>
+
+  <!-- ═══ 01 SOLUTIONS ═══ -->
+  <section id="introduction" data-section="introduction" style="position:relative;z-index:2;padding:clamp(80px,13vh,180px) clamp(20px,4vw,60px) clamp(48px,7vh,90px);max-width:1560px;margin:0 auto">
+
+    <h2 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0 0 clamp(24px,3.4vw,40px);font-weight:700;font-size:clamp(28px,4.6vw,74px);line-height:1.02;letter-spacing:-.036em;max-width:20ch;text-wrap:pretty">
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Bringing</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">holograms</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">to</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">healthcare,</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">retail,</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">entertainment</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">&amp; more</span></span>
+    </h2>
+
+    <p data-swords="1" style="margin:0;max-width:52ch;font-size:clamp(16px,1.7vw,27px);line-height:1.5;font-weight:400;letter-spacing:-.012em;text-wrap:pretty"><span data-sw="1">From</span> <span data-sw="1">enhancing</span> <span data-sw="1">doctor-patient</span> <span data-sw="1">engagement,</span> <span data-sw="1">improving</span> <span data-sw="1">medical</span> <span data-sw="1">training</span> <span data-sw="1">or</span> <span data-sw="1">creating</span> <span data-sw="1">unforgettable</span> <span data-sw="1">experiential</span> <span data-sw="1">events,</span> <span data-sw="1">our</span> <span data-sw="1">technologies</span> <span data-sw="1">transform</span> <span data-sw="1">how</span> <span data-sw="1">industries</span> <span data-sw="1">engage,</span> <span data-sw="1">educate,</span> <span data-sw="1">and</span> <span data-sw="1">inspire.</span></p>
+  </section>
+
+  <!-- field carousel -->
+  <section data-car="1" style="position:relative;z-index:2;padding:clamp(24px,4vh,56px) 0 clamp(48px,7vh,90px)">
+    <div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:0 clamp(20px,4vw,60px) 24px">
+      <span data-car-idx="1" style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.24em;color:#61636D;margin-right:6px">01 / 05</span>
+        <button data-car-prev="1" aria-label="prev" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(237,234,228,.16);background:rgba(237,234,228,.03);color:#EDEAE4;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .4s,border-color .4s,background .4s">&#8592;</button>
+        <button data-car-next="1" aria-label="next" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(237,234,228,.16);background:rgba(237,234,228,.03);color:#EDEAE4;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .4s,border-color .4s,background .4s">&#8594;</button>
+    </div>
+    <div data-car-view="1" style="overflow:hidden;padding:0 clamp(20px,4vw,60px);cursor:grab">
+      <div data-car-track="1" style="display:flex;gap:clamp(16px,2.2vw,32px);will-change:transform;transition:transform .85s cubic-bezier(.16,1,.3,1)">
+        <figure data-car-card="1" data-reveal="1" style="margin:0;flex:0 0 auto;width:min(86vw,340px);position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) 0s,transform 1.1s cubic-bezier(.16,1,.3,1) 0s">
+          <video src="./assets/demo-5.mp4" muted="muted" loop="loop" playsinline="playsinline" style="display:block;width:100%;height:480px;object-fit:cover;object-position:50% 22%;opacity:.9"></video>
+          <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(111,227,255,.6),transparent)"></span>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(5,5,10,.94),transparent)">
+            <span style="font-weight:500;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.02em">Education &amp; public space</span>
+          </figcaption>
+        </figure>
+        <figure data-car-card="1" data-reveal="1" style="margin:0;flex:0 0 auto;width:min(86vw,340px);position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) 0.08s,transform 1.1s cubic-bezier(.16,1,.3,1) 0.08s">
+          <video src="./assets/demo-2.mp4" muted="muted" loop="loop" playsinline="playsinline" style="display:block;width:100%;height:480px;object-fit:cover;object-position:50% 22%;opacity:.9"></video>
+          <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,255,.6),transparent)"></span>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(5,5,10,.94),transparent)">
+            <span style="font-weight:500;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.02em">Medical training</span>
+          </figcaption>
+        </figure>
+        <figure data-car-card="1" data-reveal="1" style="margin:0;flex:0 0 auto;width:min(86vw,340px);position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) 0.16s,transform 1.1s cubic-bezier(.16,1,.3,1) 0.16s">
+          <video src="./assets/demo-3.mp4" muted="muted" loop="loop" playsinline="playsinline" style="display:block;width:100%;height:480px;object-fit:cover;object-position:50% 22%;opacity:.9"></video>
+          <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,194,122,.6),transparent)"></span>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(5,5,10,.94),transparent)">
+            <span style="font-weight:500;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.02em">Retail &amp; brand activation</span>
+          </figcaption>
+        </figure>
+        <figure data-car-card="1" data-reveal="1" style="margin:0;flex:0 0 auto;width:min(86vw,340px);position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) 0.16s,transform 1.1s cubic-bezier(.16,1,.3,1) 0.16s">
+          <video src="./assets/demo-4.mp4" muted="muted" loop="loop" playsinline="playsinline" style="display:block;width:100%;height:480px;object-fit:cover;object-position:50% 22%;opacity:.9"></video>
+          <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(111,227,255,.6),transparent)"></span>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(5,5,10,.94),transparent)">
+            <span style="font-weight:500;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.02em">Experiential events</span>
+          </figcaption>
+        </figure>
+        <figure data-car-card="1" data-reveal="1" style="margin:0;flex:0 0 auto;width:min(86vw,340px);position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) 0.16s,transform 1.1s cubic-bezier(.16,1,.3,1) 0.16s">
+          <video src="./assets/demo-1.mp4" muted="muted" loop="loop" playsinline="playsinline" style="display:block;width:100%;height:480px;object-fit:cover;object-position:50% 22%;opacity:.9"></video>
+          <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,255,.6),transparent)"></span>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(5,5,10,.94),transparent)">
+            <span style="font-weight:500;font-size:clamp(15px,1.5vw,21px);letter-spacing:-.02em">Clinical consultation</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 02 TECHNOLOGY ═══ -->
+  <section id="technology" data-section="technology" style="position:relative;z-index:2;padding:clamp(80px,13vh,180px) clamp(20px,4vw,60px) 0;max-width:1560px;margin:0 auto">
+
+    <h2 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0 0 clamp(24px,3.4vw,40px);max-width:20ch;font-weight:700;font-size:clamp(28px,4.6vw,74px);line-height:1.02;letter-spacing:-.036em;text-wrap:pretty">
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">HoloPortal&#174;</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">and</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">HoloPod&#174;</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">3D</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">hologram</span></span>
+      <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">displays</span></span>
+    </h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(20px,2.4vw,34px)">
+
+      <article data-reveal="1" style="position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)">
+        <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,255,.6),transparent);z-index:2"></span>
+        <img loading="lazy" decoding="async" src="./assets/product-1.jpg" alt="HoloPortal 86-inch hologram display" style="display:block;width:100%;height:clamp(240px,32vh,340px);object-fit:cover;opacity:.86" />
+        <div style="padding:clamp(24px,2.6vw,38px)">
+          <span style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.28em;color:#A78BFF">01 / FLAGSHIP</span>
+          <h3 style="font-family:'Sora',system-ui,sans-serif;margin:14px 0 16px;font-weight:600;font-size:clamp(21px,2.2vw,32px);line-height:1.1;letter-spacing:-.028em;color:#EDEAE4">HoloPortal&#174; HST-86 3D Hologram Display</h3>
+          <p style="margin:0 0 26px;font-size:clamp(14px,1.3vw,17px);line-height:1.65;color:#9A9CA6;text-wrap:pretty">The HoloPortal&#174; delivers cutting-edge holographic communication on a life-size 86-inch interactive display, creating fully life-size, real-time presence with WiFi-enabled plug-and-play simplicity. Equipped with a Smart Camera, built-in microphone, AI-powered processing, and high-density multitouch screen technology, it seamlessly captures and displays live or pre-recorded content with unmatched resolution.</p>
+          <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:rgba(237,234,228,.09);border:1px solid rgba(237,234,228,.09);border-radius:4px;overflow:hidden">
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">86&#8243;</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">DISPLAY</div></li>
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">4K</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">RESOLUTION</div></li>
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">Live</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">REAL-TIME</div></li>
+          </ul>
+        </div>
+      </article>
+
+      <article data-reveal="1" style="position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(237,234,228,.09);background:#0A0B11;box-shadow:0 40px 90px -50px rgba(0,0,0,.9);opacity:0;transform:translateY(30px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1) .14s,transform 1.1s cubic-bezier(.16,1,.3,1) .14s">
+        <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(111,227,255,.6),transparent);z-index:2"></span>
+        <img loading="lazy" decoding="async" src="./assets/product-2.jpg" alt="HoloPod 30-inch hologram display" style="display:block;width:100%;height:clamp(240px,32vh,340px);object-fit:cover;opacity:.86" />
+        <div style="padding:clamp(24px,2.6vw,38px)">
+          <span style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.28em;color:#6FE3FF">02 / COMPACT</span>
+          <h3 style="font-family:'Sora',system-ui,sans-serif;margin:14px 0 16px;font-weight:600;font-size:clamp(21px,2.2vw,32px);line-height:1.1;letter-spacing:-.028em;color:#EDEAE4">HoloPod&#174; HST-30 3D Hologram Display</h3>
+          <p style="margin:0 0 26px;font-size:clamp(14px,1.3vw,17px);line-height:1.65;color:#9A9CA6;text-wrap:pretty">The HoloPod&#174; brings the same holographic presence to counter-top and wall-mounted spaces. At 30 inches high with a 22-inch touch-screen display, it packs an integrated camera, speakers, and connector ports into an industrial-grade enclosure built for continuous public use.</p>
+          <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:rgba(237,234,228,.09);border:1px solid rgba(237,234,228,.09);border-radius:4px;overflow:hidden">
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">30&#8243;</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">HEIGHT</div></li>
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">22&#8243;</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">TOUCH SCREEN</div></li>
+            <li style="background:#05050A;padding:16px"><div style="font-family:'Sora',system-ui,sans-serif;font-size:clamp(18px,1.9vw,26px);font-weight:600;color:#EDEAE4;letter-spacing:-.02em">IP-rated</div><div style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:9px;letter-spacing:.2em;color:#61636D;margin-top:6px">INDUSTRIAL BUILD</div></li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ 03 CASE STUDY ═══ -->
+  <section id="case-study" data-section="case-study" style="position:relative;z-index:2;padding:clamp(80px,13vh,180px) clamp(20px,4vw,60px);max-width:1560px;margin:0 auto">
+
+    <div style="display:grid;gap:clamp(20px,3vw,34px);margin-bottom:clamp(36px,5vw,68px)">
+      <h2 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0;max-width:20ch;font-weight:700;font-size:clamp(28px,4.6vw,74px);line-height:1.02;letter-spacing:-.036em;text-wrap:pretty">
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Time-efficient</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">care</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">delivery,</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">exceptional</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">patient experience</span></span>
+      </h2>
+      <p data-reveal="1" style="margin:0;font-size:clamp(14px,1.3vw,18px);line-height:1.7;color:#9A9CA6;max-width:58ch;opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.16,1,.3,1) .18s,transform 1s cubic-bezier(.16,1,.3,1) .18s">Connecting a specialty care clinic to a rural hospital increasing staff efficiency, ensuring consistent patient engagement, reducing Doctor travel time. The system is scalable for networking across multiple locations.</p>
+    </div>
+
+    <div data-reveal="1" data-tilt="1" style="position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(237,234,228,.10);background:#0A0B11;box-shadow:0 60px 120px -60px rgba(0,0,0,.95);opacity:0;transform:translateY(36px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1)">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/9">
+        <video data-manual-video="1" src="./assets/case-study-1.mp4" loop="loop" playsinline="playsinline" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9"></video>
+        <button data-video-play="1" aria-label="Play video" style="position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;border:0;background:rgba(5,5,10,.38);backdrop-filter:blur(2px);cursor:pointer;transition:opacity .5s,background .5s">
+          <span style="display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:100px;border:1px solid rgba(237,234,228,.22);background:rgba(5,5,10,.55);color:#EDEAE4;font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.22em">
+            <span style="font-size:12px;line-height:1">&#9654;</span>
+            Play
+          </span>
+        </button>
+      </div>
+      <span style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(111,227,255,.6),rgba(167,139,255,.6),transparent)"></span>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(5,5,10,.9),transparent 58%)"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 FAQ ═══ -->
+  <section id="faq" data-section="faq" style="position:relative;z-index:2;padding:clamp(60px,9vh,120px) clamp(20px,4vw,60px) clamp(80px,13vh,180px);max-width:1560px;margin:0 auto">
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,90px);align-items:start">
+      <div style="position:sticky;top:16vh;max-width:22ch">
+        <h2 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0 0 20px;font-weight:700;font-size:clamp(28px,4.2vw,62px);line-height:1.03;letter-spacing:-.036em">
+          <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Frequently</span></span>
+          <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">asked</span></span>
+          <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">questions</span></span>
+        </h2>
+        <p data-reveal="1" style="margin:0;font-size:clamp(14px,1.3vw,17px);line-height:1.7;color:#9A9CA6;opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.16,1,.3,1) .16s,transform 1s cubic-bezier(.16,1,.3,1) .16s">We can answer these and many more questions. <a href="mailto:info@hologramsolutions.tech" data-magnetic="0" data-hover-color="#EDEAE4">Contact us</a></p>
+      </div>
+
+      <div style="display:grid;gap:0;border-top:1px solid rgba(237,234,228,.11)">
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>What size are the the HoloPod&#174; and HoloPortal&#174; displays and where can they be used?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">The HoloPod&#174; is 30&#8243; high and features a 22-inch touch-screen display suitable for counter-top or wall-mount placement with its own integrated camera, speakers and connector ports. Its industrial-grade design makes it suitable for a wide range of locations including medical facilities, corporate offices, educational institutions, retail locations, trade shows and more. The HoloPortal&#174; is the full-size 86&#8243; hologram display with touch-screen, integrated camera, stereo speakers and media storage. It is on wheels and typically comes in its own road case for transporting. The connector ports for both units provide HDMI, USB, WiFi and Ethernet inputs.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .05s,transform .9s cubic-bezier(.16,1,.3,1) .05s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>What resolution and image quality can I expect?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">Both units render high-density imagery designed to hold detail at conversational distance, so a life-size figure reads as physically present rather than as a screen. Source material can be streamed live from a Smart Camera feed or played back from onboard media storage without a loss in clarity.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .1s,transform .9s cubic-bezier(.16,1,.3,1) .1s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>How wide is the viewing angle and can people see it clearly?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">The holographic effect holds across a wide seated or standing arc, so small groups can gather around a single unit without anyone losing the depth cue. No headsets, glasses or per-viewer hardware are required.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .15s,transform .9s cubic-bezier(.16,1,.3,1) .15s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>Are the HoloPod&#174; and HoloPortal&#174; interactive and easy to operate?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">Yes. Both units use high-density multitouch screens, so a visitor or clinician can navigate content directly on the display. Setup is WiFi-enabled plug-and-play, and day-to-day operation needs no specialist AV staff.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .2s,transform .9s cubic-bezier(.16,1,.3,1) .2s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>Do the hologram display units include AI technology?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">Yes. AI-powered processing handles the capture and presentation pipeline, and the Smart Camera uses it to frame and track a subject during a live session. AI-driven interactive presenters can also be configured for unattended locations.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .25s,transform .9s cubic-bezier(.16,1,.3,1) .25s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>What connectivity options are available?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">The connector ports on both units provide HDMI, USB, WiFi and Ethernet inputs. That covers a local laptop or media player, wired network for reliability in clinical settings, and WiFi for temporary installations and events.</p>
+          </div>
+        </div>
+
+        <div data-faq="1" data-reveal="1" style="border-bottom:1px solid rgba(237,234,228,.11);opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .3s,transform .9s cubic-bezier(.16,1,.3,1) .3s">
+          <button data-faq-btn="1" data-magnetic="0" data-hover-color="#EDEAE4" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:26px 0;background:none;border:0;text-align:left;color:#C9C6C0;font-family:'Sora',system-ui,sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,21px);line-height:1.35;letter-spacing:-.018em;cursor:pointer;transition:color .4s">
+            <span>How durable are the products?</span>
+            <span data-faq-icon="1" style="flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:300;line-height:1;transition:transform .55s cubic-bezier(.16,1,.3,1),color .4s">+</span>
+          </button>
+          <div data-faq-panel="1" style="overflow:hidden;height:0;transition:height .65s cubic-bezier(.16,1,.3,1)">
+            <p style="margin:0;padding:0 0 28px;max-width:62ch;font-size:clamp(13px,1.15vw,16px);line-height:1.75;color:#9A9CA6;text-wrap:pretty">Both products use industrial-grade enclosures intended for continuous use in public and clinical environments. The HoloPortal&#174; is mounted on wheels and typically ships in its own road case, so it can be moved between rooms, sites and events without a rebuild.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section data-section="cta" style="position:relative;z-index:2;min-height:92svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:clamp(80px,13vh,180px) clamp(20px,4vw,60px)">
+    <div data-par="1" data-par-speed=".16" style="position:absolute;inset:-14% -4%;z-index:0;will-change:transform">
+      <canvas data-hero-gl="1" style="display:block;width:100%;height:100%"></canvas>
+    </div>
+    <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(85% 75% at 50% 50%,rgba(5,5,10,.5),#05050A 82%)"></div>
+    <div style="position:relative;z-index:2;display:grid;gap:clamp(22px,3vw,38px);justify-items:center">
+      <h2 data-words="1" style="font-family:'Sora',system-ui,sans-serif;margin:0;max-width:18ch;font-weight:700;font-size:clamp(32px,6.4vw,104px);line-height:.98;letter-spacing:-.045em;text-wrap:pretty">
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">The</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">future</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">of</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">visual</span></span>
+        <span data-w="1" style="display:inline-block;overflow:hidden;vertical-align:bottom;padding:.16em 0 .62em;margin:-.16em 0 -.56em"><span style="display:inline-block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.16,1,.3,1);background:linear-gradient(180deg,#FFFFFF 12%,#C4C2BD 100%);-webkit-background-clip:text;background-clip:text;color:transparent">communication</span></span>
+      </h2>
+      <p data-reveal="1" style="margin:0;font-size:clamp(15px,1.4vw,20px);line-height:1.6;color:#9A9CA6;opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .2s,transform .9s cubic-bezier(.16,1,.3,1) .2s">Learn more about Hologram Solutions.</p>
+      <a data-reveal="1" href="mailto:info@hologramsolutions.tech" data-magnetic="1" data-glow="0 10px 30px rgba(77,111,255,.34)" style="display:inline-flex;align-items:center;gap:8px;padding:16px 30px;border-radius:999px;background:linear-gradient(135deg,#4D6FFF,#9647FF);color:#fff;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:16px;letter-spacing:0;white-space:nowrap;box-shadow:0 10px 30px rgba(77,111,255,.34);transition:box-shadow .5s,transform .5s;opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .3s,transform .9s cubic-bezier(.16,1,.3,1) .3s,box-shadow .5s">Connect with us <span style="font-size:16px;line-height:1">&#8599;</span></a>
+    </div>
+  </section>
+
+  <footer style="position:relative;z-index:2;padding:clamp(32px,4vw,52px) clamp(20px,4vw,60px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;border-top:1px solid rgba(237,234,228,.08);background:rgba(10,11,17,.6)">
+    <span style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.22em;color:#40424A">&#169;2025 Hologram Solutions</span>
+    <span style="font-family:'Geist Mono',ui-monospace,monospace;font-weight:300;font-size:10px;letter-spacing:.22em;color:#40424A">Design by <a href="https://lostudio.net/" target="_blank" rel="noopener noreferrer" style="color:#61636D;text-decoration:none;transition:color .3s">Lo Studio</a></span>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;motionIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;cursorGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.querySelector('[data-root="1"]');
+    if (!root) return;
+    this.cleanups = [];
+    const q = (s) => root.querySelector(s);
+    const qa = (s) => Array.from(root.querySelectorAll(s));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const P = this.props || {};
+    const K = reduce ? 0 : (P.motionIntensity == null ? 1 : P.motionIntensity);
+
+    if (P.grain === false) { const g = q('[data-grain="1"]'); if (g) g.style.display = 'none'; }
+
+    /* ── text reveal wiring ───────────────────────────────── */
+    qa('[data-words="1"]').forEach((h) => {
+      Array.from(h.querySelectorAll('[data-w="1"] > span')).forEach((s, i) => {
+        s.style.transitionDelay = (0.06 + i * 0.075) + 's';
+      });
+    });
+    const playWords = (h) => {
+      if (h.dataset.shown === '1') return;
+      h.dataset.shown = '1';
+      Array.from(h.querySelectorAll('[data-w="1"] > span')).forEach((s) => { s.style.transform = 'translateY(0)'; });
+    };
+
+    /* ── intro curtain ────────────────────────────────────── */
+    const intro = q('[data-intro="1"]');
+    const heroWords = q('[data-section="hero"] [data-words="1"]');
+    const heroBits = qa('[data-hero-bit="1"]');
+    const revealHero = () => {
+      if (heroWords) playWords(heroWords);
+      heroBits.forEach((b) => { b.style.opacity = '1'; b.style.transform = 'translateY(0)'; b.style.filter = 'blur(0px)'; });
+    };
+    const killIntro = () => { if (intro) { intro.style.opacity = '0'; intro.style.visibility = 'hidden'; } };
+
+    if (intro && P.showIntro !== false && !reduce) {
+      const logo = q('[data-intro-logo="1"]');
+      const bar = q('[data-intro-bar="1"]');
+      const count = q('[data-intro-count="1"]');
+      requestAnimationFrame(() => {
+        if (logo) { logo.style.opacity = '1'; logo.style.transform = 'translateY(0)'; logo.style.filter = 'blur(0px)'; }
+        if (bar) { bar.style.transition = 'transform 1.7s cubic-bezier(.45,0,.15,1)'; bar.style.transform = 'scaleX(1)'; }
+      });
+      let n = 0;
+      const tick = setInterval(() => {
+        n = Math.min(100, n + Math.ceil(Math.random() * 7));
+        if (count) count.textContent = String(n).padStart(3, '0');
+        if (n >= 100) clearInterval(tick);
+      }, 92);
+      const done = setTimeout(() => { killIntro(); revealHero(); }, 2250);
+      this.cleanups.push(() => { clearInterval(tick); clearTimeout(done); });
+    } else { killIntro(); revealHero(); }
+
+    /* ── smooth scroll ────────────────────────────────────── */
+    let lenis = null;
+    if (window.Lenis && !reduce) {
+      lenis = new window.Lenis({ duration: 1.2, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.6 });
+      const raf = (t) => { lenis.raf(t); this._rafId = requestAnimationFrame(raf); };
+      this._rafId = requestAnimationFrame(raf);
+      this.cleanups.push(() => { cancelAnimationFrame(this._rafId); lenis.destroy(); });
+    }
+    const onAnchor = (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href');
+      if (id === '#top') { e.preventDefault(); lenis ? lenis.scrollTo(0, { duration: 1.5 }) : window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      const el = id.length > 1 ? document.querySelector(id) : null;
+      if (!el) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(el, { offset: -8, duration: 1.5 });
+      else window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' });
+    };
+    root.addEventListener('click', onAnchor);
+    this.cleanups.push(() => root.removeEventListener('click', onAnchor));
+
+    /* ── collections ──────────────────────────────────────── */
+    const revealEls = qa('[data-reveal="1"]');
+    const wordEls = qa('[data-words="1"]');
+    const lines = qa('[data-line="1"]');
+    const swordEls = qa('[data-swords="1"]').map((el) => ({ el: el, words: Array.from(el.querySelectorAll('[data-sw="1"]')) }));
+    swordEls.forEach((g) => g.words.forEach((w) => {
+      w.style.transition = 'color .5s linear, opacity .5s linear';
+      w.style.color = 'rgba(237,234,228,.14)';
+    }));
+    const pars = qa('[data-par]').map((el) => ({ el: el, s: parseFloat(el.getAttribute('data-par-speed')) || 0.15 }));
+    const atmos = qa('[data-atmos-l="1"]').map((el) => ({ el: el, s: parseFloat(el.getAttribute('data-par-speed')) || 0.05 }));
+    const parIns = qa('[data-par-in="1"]');
+    const vids = qa('video:not([data-manual-video="1"])');
+    qa('[data-video-play="1"]').forEach((btn) => {
+      const wrap = btn.parentNode;
+      const v = wrap.querySelector('[data-manual-video="1"]');
+      if (!v) return;
+      btn.addEventListener('click', () => {
+        const pr = v.play();
+        if (pr && pr.catch) pr.catch(() => {});
+        btn.style.opacity = '0';
+        btn.style.pointerEvents = 'none';
+      });
+      v.style.cursor = 'pointer';
+      v.addEventListener('click', () => { if (!v.paused) v.pause(); });
+      v.addEventListener('pause', () => { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; });
+    });
+    vids.forEach((v) => { v.muted = true; if (!v.getAttribute('preload')) v.setAttribute('preload', 'metadata'); });
+
+    const failsafe = setTimeout(() => {
+      revealEls.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; el.style.filter = 'blur(0px)'; el.dataset.shown = '1'; });
+      wordEls.forEach(playWords);
+      lines.forEach((l) => { l.style.transform = 'scaleX(1)'; });
+    }, 5000);
+    this.cleanups.push(() => clearTimeout(failsafe));
+
+    /* ── faq ──────────────────────────────────────────────── */
+    const items = qa('[data-faq="1"]');
+    const closeItem = (o) => {
+      const p = o.querySelector('[data-faq-panel="1"]');
+      const ic = o.querySelector('[data-faq-icon="1"]');
+      const b = o.querySelector('[data-faq-btn="1"]');
+      if (p) p.style.height = '0px';
+      o.dataset.open = '0';
+      if (ic) { ic.style.transform = 'rotate(0deg)'; ic.style.color = '#9A9CA6'; }
+      if (b) b.style.color = '#C9C6C0';
+    };
+    items.forEach((item) => {
+      const btn = item.querySelector('[data-faq-btn="1"]');
+      const panel = item.querySelector('[data-faq-panel="1"]');
+      const icon = item.querySelector('[data-faq-icon="1"]');
+      if (!btn || !panel) return;
+      const onClick = () => {
+        if (item.dataset.open === '1') { closeItem(item); return; }
+        items.forEach((o) => { if (o !== item && o.dataset.open === '1') closeItem(o); });
+        panel.style.height = '0px';
+        void panel.offsetHeight;
+        const target = panel.scrollHeight;
+        requestAnimationFrame(() => { requestAnimationFrame(() => { panel.style.height = target + 'px'; }); });
+        item.dataset.open = '1';
+        if (icon) { icon.style.transform = 'rotate(135deg)'; icon.style.color = '#EDEAE4'; }
+        btn.style.color = '#EDEAE4';
+      };
+      btn.addEventListener('click', onClick);
+      this.cleanups.push(() => btn.removeEventListener('click', onClick));
+    });
+
+    /* ── horizontal scrub ─────────────────────────────────── */
+    const hSection = q('[data-hscroll="1"]');
+    const hTrack = q('[data-hscroll-track="1"]');
+    const hBar = q('[data-hscroll-bar="1"]');
+    const hIdx = q('[data-hscroll-idx="1"]');
+    const cards = qa('[data-hcard="1"]');
+    cards.forEach((c) => { c.style.transition = 'opacity .5s linear'; c.style.willChange = 'transform,opacity'; });
+    this.measure = () => {
+      if (!hSection || !hTrack) return;
+      const vw = window.innerWidth || 1200;
+      const vh = window.innerHeight || 800;
+      if (hTrack.scrollWidth < 40) return;
+      this._overflow = Math.max(0, hTrack.scrollWidth - vw);
+      hSection.style.height = (vh + this._overflow * (vw < 760 ? 1.1 : 1)) + 'px';
+    };
+    this.measure();
+
+    /* ── field carousel ───────────────────────────────────── */
+    const carView = q('[data-car-view="1"]');
+    const carTrack = q('[data-car-track="1"]');
+    const carCards = qa('[data-car-card="1"]');
+    if (carView && carTrack && carCards.length) {
+      const idxLabel = q('[data-car-idx="1"]');
+      const prev = q('[data-car-prev="1"]');
+      const next = q('[data-car-next="1"]');
+      let ci = 0, drag = null;
+      const gapPx = () => {
+        const cs = getComputedStyle(carTrack);
+        return parseFloat(cs.columnGap || cs.gap) || 24;
+      };
+      const stepPx = () => carCards[0].getBoundingClientRect().width + gapPx();
+      const maxIdx = () => {
+        const step = stepPx();
+        const total = carCards.length * step - gapPx();
+        const cs = getComputedStyle(carView);
+        const inner = carView.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0);
+        return Math.max(0, Math.ceil((total - inner) / step - 0.02));
+      };
+      const paint = () => {
+        const m = maxIdx();
+        if (prev) { prev.style.opacity = ci <= 0 ? '.3' : '1'; prev.style.pointerEvents = ci <= 0 ? 'none' : 'auto'; }
+        if (next) { next.style.opacity = ci >= m ? '.3' : '1'; next.style.pointerEvents = ci >= m ? 'none' : 'auto'; }
+        if (idxLabel) idxLabel.textContent = String(ci + 1).padStart(2, '0') + ' / ' + String(carCards.length).padStart(2, '0');
+      };
+      const go = (i, animate) => {
+        ci = clamp(i, 0, maxIdx());
+        carTrack.style.transition = animate === false ? 'none' : 'transform .85s cubic-bezier(.16,1,.3,1)';
+        carTrack.style.transform = 'translate3d(' + (-ci * stepPx()) + 'px,0,0)';
+        paint();
+      };
+      this.carRelayout = () => go(ci, false);
+      if (prev) prev.addEventListener('click', () => go(ci - 1));
+      if (next) next.addEventListener('click', () => go(ci + 1));
+      const onDown = (e) => {
+        if (e.target.closest && e.target.closest('button')) return;
+        drag = { x: e.clientX, base: -ci * stepPx(), moved: false };
+      };
+      const onDrag = (e) => {
+        if (!drag) return;
+        const dx = e.clientX - drag.x;
+        if (!drag.moved) {
+          if (Math.abs(dx) < 6) return;
+          drag.moved = true;
+          carView.style.cursor = 'grabbing';
+          carTrack.style.transition = 'none';
+        }
+        carTrack.style.transform = 'translate3d(' + (drag.base + dx) + 'px,0,0)';
+      };
+      const onUp = (e) => {
+        if (!drag) return;
+        const dx = e.clientX - drag.x;
+        const moved = drag.moved;
+        drag = null;
+        carView.style.cursor = 'grab';
+        if (moved) go(ci - Math.round(dx / stepPx()));
+      };
+      carView.addEventListener('pointerdown', onDown);
+      carView.addEventListener('pointermove', onDrag);
+      carView.addEventListener('pointerup', onUp);
+      carView.addEventListener('pointercancel', onUp);
+      this.cleanups.push(() => {
+        carView.removeEventListener('pointerdown', onDown);
+        carView.removeEventListener('pointermove', onDrag);
+        carView.removeEventListener('pointerup', onUp);
+        carView.removeEventListener('pointercancel', onUp);
+      });
+      paint();
+    }
+
+    /* ── sticky depth stack ───────────────────────────────── */
+    const stackItems = qa('[data-stack-item="1"]');
+    const stackCards = stackItems.map((it) => it.querySelector('[data-stack-card="1"]'));
+    this.equalizeStack = () => {
+      const cards = stackCards.filter(Boolean);
+      if (cards.length < 2) return;
+      cards.forEach((c) => { c.style.height = 'auto'; });
+      const tallest = cards.reduce((m, c) => Math.max(m, c.offsetHeight), 0);
+      cards.forEach((c) => { c.style.height = tallest + 'px'; });
+    };
+    this.equalizeStack();
+
+    /* ── scroll loop ──────────────────────────────────────── */
+    const nav = q('[data-nav="1"]');
+    const prog = q('[data-progress="1"]');
+    const rail = q('[data-rail="1"]');
+    const railLinks = qa('[data-rail-dot]');
+    const navLinks = qa('[data-navlink="1"]');
+    let activeSection = '';
+
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      const vh = window.innerHeight || 800;
+      const docH = (document.documentElement.scrollHeight - vh) || 1;
+
+      /* reveals */
+      revealEls.forEach((el) => {
+        if (el.dataset.shown === '1') return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.88 && r.bottom > 0) {
+          el.dataset.shown = '1';
+          el.style.opacity = '1'; el.style.transform = 'translateY(0)'; el.style.filter = 'blur(0px)';
+        }
+      });
+      wordEls.forEach((h) => {
+        if (h.dataset.shown === '1') return;
+        const r = h.getBoundingClientRect();
+        if (r.top < vh * 0.85 && r.bottom > 0) playWords(h);
+      });
+      lines.forEach((l) => {
+        if (l.dataset.shown === '1') return;
+        const r = l.getBoundingClientRect();
+        if (r.top < vh * 0.9 && r.bottom > 0) { l.dataset.shown = '1'; l.style.transform = 'scaleX(1)'; }
+      });
+
+      /* word-by-word illumination */
+      swordEls.forEach((g) => {
+        const r = g.el.getBoundingClientRect();
+        const span = r.height + vh * 0.42;
+        const p = clamp((vh * 0.78 - r.top) / span, 0, 1);
+        const lit = p * (g.words.length + 4);
+        g.words.forEach((w, i) => {
+          const t = clamp(lit - i, 0, 1);
+          w.style.color = t > 0.5 ? '#EDEAE4' : 'rgba(237,234,228,.14)';
+        });
+      });
+
+      /* video playback */
+      vids.forEach((v) => {
+        const r = v.getBoundingClientRect();
+        if (r.top < vh * 1.15 && r.bottom > -vh * 0.15) { if (v.paused) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } }
+        else if (!v.paused) v.pause();
+      });
+
+      /* chrome */
+      if (prog) prog.style.transform = 'scaleX(' + clamp(y / docH, 0, 1) + ')';
+      if (nav) {
+        const on = y > 40;
+        nav.style.background = on ? 'rgba(5,5,10,.72)' : 'transparent';
+        nav.style.backdropFilter = on ? 'blur(18px)' : 'none';
+        nav.style.borderBottomColor = on ? 'rgba(237,234,228,.08)' : 'transparent';
+        nav.style.padding = on ? '15px clamp(20px,4vw,60px)' : '26px clamp(20px,4vw,60px)';
+      }
+      if (rail) rail.style.opacity = (y > vh * 0.75 && y < docH - vh * 0.3) ? '1' : '0';
+
+      /* parallax layers */
+      atmos.forEach((o) => { o.el.style.marginTop = (-y * o.s * K) + 'px'; });
+      pars.forEach((o) => {
+        const r = o.el.parentElement.getBoundingClientRect();
+        if (r.bottom < -vh * 0.3 || r.top > vh * 1.3) return;
+        o.el.style.transform = 'translate3d(0,' + ((r.top - vh * 0.4) * -o.s * K) + 'px,0)';
+      });
+      parIns.forEach((el) => {
+        const host = el.parentElement;
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -vh * 0.3 || r.top > vh * 1.3) return;
+        const p = clamp((vh - r.top) / (vh + r.height), 0, 1);
+        el.style.transform = 'translate3d(0,' + ((p - 0.5) * -9 * K) + '%,0)';
+      });
+
+      /* horizontal scrub + per-card depth */
+      if (hSection && hTrack) {
+        const r = hSection.getBoundingClientRect();
+        const total = hSection.offsetHeight - vh;
+        const p = clamp(-r.top / (total || 1), 0, 1);
+        hTrack.style.transform = 'translate3d(' + (-p * (this._overflow || 0)) + 'px,0,0)';
+        if (hBar) hBar.style.transform = 'scaleX(' + Math.max(0.2, p) + ')';
+        if (hIdx) hIdx.textContent = String(Math.min(cards.length, Math.floor(p * cards.length) + 1)).padStart(2, '0');
+        if (r.top < vh && r.bottom > 0) {
+          const cx = window.innerWidth * 0.42;
+          cards.forEach((c) => {
+            const cr = c.getBoundingClientRect();
+            const d = clamp(Math.abs(cr.left + cr.width / 2 - cx) / (window.innerWidth * 0.95), 0, 1);
+            c.style.transform = 'scale(' + (1 - 0.075 * d * K) + ') translateY(' + (d * 16 * K) + 'px)';
+            c.style.opacity = String(1 - 0.42 * d);
+          });
+        }
+      }
+
+      /* sticky depth stack */
+      stackItems.forEach((it, i) => {
+        const card = stackCards[i];
+        if (!card) return;
+        const next = stackItems[i + 1];
+        if (!next) { card.style.transform = 'translate3d(0,0,0)'; card.style.opacity = '1'; card.style.filter = 'none'; return; }
+        const nr = next.getBoundingClientRect();
+        const p = clamp(1 - nr.top / vh, 0, 1);
+        const e = p * p * (3 - 2 * p);
+        card.style.transform = 'translate3d(0,' + (-46 * e * K) + 'px,0) scale(' + (1 - 0.085 * e) + ')';
+        card.style.opacity = String(1 - 0.6 * e);
+        card.style.filter = e > 0.02 ? 'blur(' + (2.4 * e).toFixed(2) + 'px)' : 'none';
+      });
+
+      /* active section */
+      let cur = '';
+      ['introduction', 'technology', 'case-study', 'faq'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        if (r.top <= vh * 0.4 && r.bottom > vh * 0.4) cur = id;
+      });
+      if (cur !== activeSection) {
+        activeSection = cur;
+        railLinks.forEach((a) => {
+          const on = a.getAttribute('data-rail-dot') === cur;
+          a.style.color = on ? '#EDEAE4' : '#61636D';
+          const lbl = a.children[0], line = a.children[1];
+          if (lbl) lbl.style.opacity = on ? '1' : '0';
+          if (line) line.style.width = on ? '44px' : '20px';
+        });
+        navLinks.forEach((a) => { a.style.color = a.getAttribute('href') === '#' + cur ? '#EDEAE4' : '#9A9CA6'; });
+      }
+    };
+    let scrollQueued = false;
+    const onScrollThrottled = () => {
+      if (scrollQueued) return;
+      scrollQueued = true;
+      requestAnimationFrame(() => { scrollQueued = false; onScroll(); });
+    };
+    this._onScroll = onScrollThrottled;
+    if (lenis) lenis.on('scroll', onScrollThrottled);
+    window.addEventListener('scroll', onScrollThrottled, { passive: true });
+    onScroll();
+
+    const onResize = () => {
+      items.forEach((item) => { if (item.dataset.open === '1') { const p = item.querySelector('[data-faq-panel="1"]'); p.style.height = p.scrollHeight + 'px'; } });
+      this.measure();
+      if (this.equalizeStack) this.equalizeStack();
+      if (this.carRelayout) this.carRelayout();
+      onScroll();
+    };
+    window.addEventListener('resize', onResize);
+    window.addEventListener('load', onResize);
+    this.cleanups.push(() => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onResize); window.removeEventListener('load', onResize); });
+    if (window.ResizeObserver && hTrack) {
+      const ro = new ResizeObserver(() => onResize());
+      ro.observe(hTrack); ro.observe(document.documentElement);
+      this.cleanups.push(() => ro.disconnect());
+    }
+    [120, 400, 1200, 2600].forEach((d) => {
+      const t = setTimeout(onResize, d);
+      this.cleanups.push(() => clearTimeout(t));
+    });
+
+    /* ── hero nebula (three.js fragment shader) ───────────── */
+    const lowPower = reduce || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || window.matchMedia('(max-width: 720px)').matches;
+    qa('[data-hero-gl="1"]').forEach((glCanvas) => {
+      if (!window.THREE) return;
+      if (lowPower) {
+        glCanvas.style.display = 'none';
+        const host = glCanvas.parentNode;
+        if (host) host.style.background = 'radial-gradient(70% 60% at 50% 45%,rgba(167,139,255,.22),rgba(111,227,255,.10) 45%,#05050A 78%)';
+        return;
+      }
+      const THREE = window.THREE;
+      const host = glCanvas.parentElement;
+      const renderer = new THREE.WebGLRenderer({ canvas: glCanvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+      renderer.setClearColor(0x05050a, 1);
+      const scene = new THREE.Scene();
+      const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+      const uniforms = {
+        uRes: { value: new THREE.Vector2(1, 1) },
+        uT: { value: 0 },
+        uP: { value: new THREE.Vector2(0, 0) },
+        uHue: { value: 0 },
+        uSat: { value: 1 },
+        uBri: { value: 1 },
+        uAmp: { value: reduce ? 0 : 1 }
+      };
+      const frag = [
+        'precision highp float;',
+        'varying vec2 vUv;',
+        'uniform vec2 uRes; uniform float uT; uniform vec2 uP;',
+        'uniform float uHue, uSat, uBri, uAmp;',
+        'mat2 rot(float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c); }',
+        'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453123); }',
+        'float noise(vec2 p){',
+        '  vec2 i = floor(p), f = fract(p);',
+        '  f = f*f*(3.0-2.0*f);',
+        '  float a = hash(i), b = hash(i+vec2(1.0,0.0)), c = hash(i+vec2(0.0,1.0)), d = hash(i+vec2(1.0,1.0));',
+        '  return mix(mix(a,b,f.x), mix(c,d,f.x), f.y);',
+        '}',
+        'float fbm(vec2 p){',
+        '  float s = 0.0, a = 0.5;',
+        '  for(int i=0;i<6;i++){ s += a*noise(p); p = rot(0.55)*p*2.03; a *= 0.5; }',
+        '  return s;',
+        '}',
+        'vec3 hueShift(vec3 c, float h){',
+        '  const vec3 k = vec3(0.57735);',
+        '  float ca = cos(h);',
+        '  return c*ca + cross(k,c)*sin(h) + k*dot(k,c)*(1.0-ca);',
+        '}',
+        'void main(){',
+        '  vec2 uv = (vUv - 0.5) * vec2(uRes.x/uRes.y, 1.0);',
+        '  float t = uT * 0.06 * uAmp;',
+        '  vec2 p = uv * 2.1 + uP * 0.22;',
+        '  vec2 qv = vec2(fbm(p + vec2(0.0, t)), fbm(p + vec2(5.2, 1.3) - t));',
+        '  vec2 rv = vec2(fbm(p + 2.0*qv + vec2(1.7, 9.2) + t*0.8), fbm(p + 2.0*qv + vec2(8.3, 2.8) - t*0.7));',
+        '  float f = fbm(p + 2.4*rv);',
+        '  float breathe = 0.88 + 0.12 * sin(uT * 0.35 * uAmp);',
+        '  vec3 deep = vec3(0.020, 0.020, 0.043);',
+        '  vec3 indigo = vec3(0.180, 0.130, 0.470);',
+        '  vec3 violet = vec3(0.655, 0.545, 1.000);',
+        '  vec3 cyan = vec3(0.435, 0.890, 1.000);',
+        '  vec3 amber = vec3(1.000, 0.760, 0.478);',
+        '  vec3 col = mix(deep, indigo, clamp(f*1.35, 0.0, 1.0));',
+        '  col = mix(col, violet, clamp(pow(f, 2.2) * 1.5 * length(rv), 0.0, 1.0));',
+        '  col = mix(col, cyan, clamp(pow(max(qv.x, 0.0), 3.0) * 0.9, 0.0, 1.0));',
+        '  col += amber * pow(clamp(rv.y, 0.0, 1.0), 6.0) * 0.35;',
+        '  float core = exp(-3.4 * length(uv + uP * 0.06));',
+        '  col += violet * core * 0.30 * breathe;',
+        '  col *= breathe;',
+        '  float vig = smoothstep(1.35, 0.18, length(uv * vec2(0.86, 1.12)));',
+        '  col *= vig;',
+        '  col = hueShift(col, uHue);',
+        '  col = mix(vec3(dot(col, vec3(0.299,0.587,0.114))), col, uSat);',
+        '  col *= uBri;',
+        '  col += (hash(vUv * uRes + fract(uT)) - 0.5) * 0.022;',
+        '  gl_FragColor = vec4(max(col, 0.0), 1.0);',
+        '}'
+      ].join('\n');
+      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({
+        uniforms: uniforms,
+        vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader: frag
+      }));
+      scene.add(mesh);
+      const sizeGL = () => {
+        const w = Math.max(1, host.clientWidth), hh = Math.max(1, host.clientHeight);
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        renderer.setPixelRatio(dpr);
+        renderer.setSize(w, hh, false);
+        uniforms.uRes.value.set(w * dpr, hh * dpr);
+      };
+      sizeGL();
+      let px = 0, py = 0, tx = 0, ty = 0, t0 = performance.now(), glId = 0;
+      const onGLMove = (e) => {
+        const r = host.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        ty = ((e.clientY - r.top) / r.height - 0.5) * -2;
+      };
+      window.addEventListener('mousemove', onGLMove, { passive: true });
+      const tick = () => {
+        glId = requestAnimationFrame(tick);
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > window.innerHeight + 80) return;
+        px += (tx - px) * 0.045; py += (ty - py) * 0.045;
+        uniforms.uP.value.set(px, py);
+        uniforms.uT.value = (performance.now() - t0) / 1000;
+        uniforms.uAmp.value = reduce ? 0 : Math.max(0.25, K);
+        renderer.render(scene, camera);
+      };
+      tick();
+      const onGLResize = () => sizeGL();
+      window.addEventListener('resize', onGLResize);
+      this.cleanups.push(() => {
+        cancelAnimationFrame(glId);
+        window.removeEventListener('mousemove', onGLMove);
+        window.removeEventListener('resize', onGLResize);
+        mesh.geometry.dispose(); mesh.material.dispose(); renderer.dispose();
+      });
+    });
+
+    /* ── pointer: cursor light, magnetic, sheen, tilt ─────── */
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    if (fine && !reduce) {
+      const glow = q('[data-cursor="1"]');
+      let hovered = null, gx = 0, gy = 0, cxp = 0, cyp = 0;
+      const onMove = (e) => {
+        gx = e.clientX; gy = e.clientY;
+        if (glow && P.cursorGlow !== false) glow.style.opacity = '1';
+        if (false) {
+          const r = hovered.getBoundingClientRect();
+          hovered.style.transform = 'translate3d(0,0,0)';
+        }
+      };
+      window.addEventListener('mousemove', onMove, { passive: true });
+      const glide = () => {
+        cxp += (gx - cxp) * 0.07; cyp += (gy - cyp) * 0.07;
+        if (glow) glow.style.transform = 'translate3d(' + cxp + 'px,' + cyp + 'px,0)';
+        this._glowId = requestAnimationFrame(glide);
+      };
+      this._glowId = requestAnimationFrame(glide);
+      this.cleanups.push(() => { window.removeEventListener('mousemove', onMove); cancelAnimationFrame(this._glowId); });
+
+      qa('[data-magnetic]').forEach((el) => {
+        const strong = el.getAttribute('data-magnetic') === '1';
+        const hc = el.getAttribute('data-hover-color') || '#EDEAE4';
+        if (strong) el.style.transition = (el.style.transition ? el.style.transition + ',' : '') + 'transform .5s cubic-bezier(.16,1,.3,1)';
+        const enter = () => {
+          hovered = el;
+          if (strong) {
+            el.style.boxShadow = '0 14px 42px rgba(77,111,255,.5)';
+            if (el.getAttribute('data-sheen') === '1' && !el.querySelector('[data-sheen-el]')) {
+              const s = document.createElement('span');
+              s.setAttribute('data-sheen-el', '1');
+              s.style.cssText = 'position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(111,227,255,.5),rgba(167,139,255,.45),rgba(255,194,122,.4),transparent);animation:hs-sheen .9s cubic-bezier(.3,0,.2,1) forwards';
+              el.appendChild(s);
+              setTimeout(() => { if (s.parentNode) s.parentNode.removeChild(s); }, 1000);
+            }
+          } else { el.style.color = hc; el.style.borderColor = el.getAttribute('data-hover-border') || 'rgba(237,234,228,.32)'; }
+        };
+        const leave = () => {
+          hovered = null;
+          el.style.transform = 'translate3d(0,0,0)';
+          if (strong) el.style.boxShadow = el.getAttribute('data-glow') || 'none';
+          else { el.style.color = ''; el.style.borderColor = ''; }
+        };
+        el.addEventListener('mouseenter', enter);
+        el.addEventListener('mouseleave', leave);
+        this.cleanups.push(() => { el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave); });
+      });
+
+      const tilt = q('[data-tilt="1"]');
+      if (tilt) {
+        const onTilt = (e) => {
+          const r = tilt.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          tilt.style.transform = 'perspective(1600px) rotateY(' + (px * 3.4) + 'deg) rotateX(' + (-py * 2.4) + 'deg)';
+        };
+        const offTilt = () => { tilt.style.transform = 'perspective(1600px) rotateY(0deg) rotateX(0deg)'; };
+        tilt.addEventListener('mousemove', onTilt);
+        tilt.addEventListener('mouseleave', offTilt);
+        this.cleanups.push(() => { tilt.removeEventListener('mousemove', onTilt); tilt.removeEventListener('mouseleave', offTilt); });
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    (this.cleanups || []).forEach((fn) => { try { fn(); } catch (e) {} });
+  }
+
+  renderVals() { return {}; }
+}
+
+</script>
+</body>
+</html>
