@@ -29,5 +29,8 @@ python3 -m http.server 8000
 ## Editing
 Both pages are plain HTML with inline styles. Edit `index.html` and `404.html` directly.
 
+## Host URLs
+Share tags, `canonical`, `sitemap.xml`, `robots.txt`, and `CNAME` all point at `https://hologramsolutions.tech`. Nothing to change at launch. Note that social previews only resolve once that domain serves the site — on a temporary preview URL the share card will not load, because `og:image` is absolute to the .tech origin (as the spec requires).
+
 ## SEO / social
-Title, description, canonical, Open Graph, Twitter card, and Organization JSON-LD live in the `<head>` of `index.html`. The share image is `assets/og-card-mark-white.png` (1200×630).
+Title, description, canonical, Open Graph, Twitter card, and Organization JSON-LD live in the `<head>` of `index.html`. The share image is `assets/og-card-v2.jpg` (1200×630). Rename it when you change it — scrapers cache aggressively per URL.
